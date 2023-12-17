@@ -9,7 +9,7 @@ async function generateCosmosWallets(numberOfWallets) {
     for (let i = 0; i < numberOfWallets; i++) {
         const mnemonic = bip39.generateMnemonic();
         const keys = crypto.getKeysFromMnemonic(mnemonic);
-        const wallet = await DirectSecp256k1Wallet.fromKey(Buffer.from(keys.privateKey), "cosmos");
+        const wallet = await DirectSecp256k1Wallet.fromKey(Buffer.from(keys.privateKey), "celestia");
         const [account] = await wallet.getAccounts();
         const walletAddress = account.address;
         walletData.push({
